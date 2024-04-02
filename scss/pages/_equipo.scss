@@ -1,0 +1,84 @@
+#equipo {
+    padding-top: 118px;
+    padding-left: 15px;
+    padding-right: 15px;
+    @include flex(column);
+
+    #tituloEquipo {
+        text-align: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        font-size: xx-large;
+    }
+
+    .cajaMiembro {
+        margin-top: 30px;
+        margin-bottom: 30px;
+
+        .miembro1 {
+            @include flex(row);
+            flex-wrap: wrap;
+        }
+
+        .miembro2 {
+            @include flex(row);
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nombre2 {
+            text-align: end;
+        }
+
+        .fotoMiembro {
+            width: 275px;
+            height: 210px;
+        }
+
+        .resena {
+            width: 650px;
+            font-size: large;
+            text-align: justify;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+
+@media screen and (max-width: 426px) {
+    #equipo {
+        padding-top: 80px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 80px;
+
+        .cajaMiembro {
+            text-align: center; 
+            
+            #tituloEquipo {
+                padding-top: 15px;
+                padding-bottom: 15px;
+                font-size: 30px;
+            }
+
+            .resena {
+                text-align: left;
+                font-size: 16px;
+            }
+
+            .miembro1 {
+                justify-content: center;
+            }
+
+            .miembro2 {
+                justify-content: center !important;
+                text-align: center !important;
+            }
+
+            .nombre2 {
+                text-align: center !important;
+            }
+        }
+    }
+}

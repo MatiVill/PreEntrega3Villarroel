@@ -1,0 +1,25 @@
+//ABSTRACTS
+@import "abstracts/mixins";
+@import "abstracts/variables";
+
+//BASE
+@import "base/reset";
+@import "base/typography";
+
+//COMPONENTS
+@import "components/buttons";
+
+//LAYOUT
+@import "layout/footer";
+@import "layout/header";
+@import "layout/navigation";
+
+//PAGES
+@import "pages/index";
+@import "pages/contenido";
+@import "pages/equipo";
+@import "pages/tienda";
+@import "pages/contacto";
+
+
+

@@ -1,0 +1,14 @@
+$colorPrimario: black;
+$colorSecundario: whitesmoke;
+
+%textoCentrado {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+%estilosInput {
+    display: flex;
+    height: 30px;
+    width: 200px;
+}

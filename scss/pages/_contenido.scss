@@ -1,0 +1,32 @@
+#bodyContenido {
+    padding-top: 118px;
+
+    .contenido {
+        font-size: larger;
+        margin: 10px;
+
+        .listaVideos {
+            @include flex(row);
+            margin-bottom: 50px;
+            overflow: auto;
+            white-space: nowrap;
+
+            .contenedorVideo {
+                @include flex(column);
+                margin: 10px;
+                flex-wrap: wrap;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 426px) {
+    #bodyContenido {
+        padding-top: 80px;
+
+        .video {
+            width: 280px;
+            height: 200px;
+        }
+    }
+}

@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul, ol {
+    list-style-type: none;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+    color: $colorSecundario;
+}
+
+@media screen and (max-width: 426px) {
+    * {
+        font-size: medium;
+    }
+}

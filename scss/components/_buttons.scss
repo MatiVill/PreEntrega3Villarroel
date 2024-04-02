@@ -1,0 +1,75 @@
+.botonContacto {
+    background-color: $colorPrimario;
+    color: $colorSecundario;
+    border-radius: 15px;
+    min-width: 115px;
+    font-weight: 500;
+    font-style: italic;
+}
+
+
+//TIENDA//
+
+.botonProducto {
+    min-width: 115px;
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 30px;
+    background: whitesmoke;
+    color: black;
+    text-align: center;
+    border: solid thin;
+    font-size: 18px;
+    font-style: italic;
+}
+
+.botonProducto:hover {
+    background-color: black;
+    color: whitesmoke;
+}
+
+.botonesTienda {
+    height: 50px;
+    padding-right: 20px;
+    @include flex(row);
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+    align-items: center;
+   
+
+    #iconoFiltro {
+        width: 20px;
+    }
+
+}
+
+#carrito {
+    width: 50px;
+}
+
+#letracarrito {
+    font-size: 50px;
+    font-weight: 600;
+}
+
+
+
+@media screen and (max-width: 426px) {
+   
+    .botonProducto {
+        font-size: 16px;
+    }
+
+    .botonesTienda {
+        height: 50px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 0px;
+
+        #ordenarPor {
+            padding-right: 0px;
+        }
+    }
+}

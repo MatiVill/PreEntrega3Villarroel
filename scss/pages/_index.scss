@@ -1,0 +1,129 @@
+#portada {
+    background-image: url(../img/fondo1.jpeg);
+    background-size: cover;
+    background-position: center;
+    color: $colorSecundario;
+    font-size: x-large;
+    @include flex(column);
+    @extend %textoCentrado;
+    padding-top: 118px;
+    min-height: 50vh;
+
+    #textoPortada {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        max-width: 600px;
+        @include flex(column);
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+#bolitaProgreso {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border-color: black;
+    border-width: 3px;
+    margin: 15px;
+    animation-name: animacionBolita;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-duration: 8s;
+    
+}
+
+@keyframes animacionBolita {
+    0% {
+        background-color: whitesmoke;
+        transform: translate(-100px);
+     }
+    35% {
+        background-color: darkblue;
+    } 
+    55% {
+        background-color: purple;
+        
+    }
+    75% {
+        background-color: saddlebrown;
+    }
+    100% {
+        background-color: black;
+        transform: translate(100px)
+    }
+}
+
+#presentacion {
+    @include flex(column);
+    @extend %textoCentrado;
+    padding: 5px 10px;
+    margin: 80px 25px 80px 25px;
+}
+
+#comoFunciona {
+    @include flex(column);
+    @extend %textoCentrado;
+    padding: 5px 10px;
+    margin: 50px 25px 25px 25px;
+}
+
+#servicios {
+    @include flex(row);
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    background-image: url(../img/fondo2.jpeg);
+    background-size: cover;
+    background-position: center;
+    color: $colorSecundario;
+    font-size: 18px;
+    font-weight: 350;
+
+
+    .circulo {
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        background: $colorSecundario;
+        color: $colorPrimario;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 2.5;
+        text-align: center;
+        margin: 10px;
+    }
+
+    .articulo {
+        text-align: center;
+        @include flex(column);
+        flex-wrap: nowrap;
+        align-items: center;
+        padding: 10px;
+    }
+}
+
+
+@media screen and (max-width: 1023px) {
+
+    #servicios {
+        @include flex(column);
+        align-items: center;
+        align-content: center;
+        padding-left: 10px;
+        padding-right: 10px;
+
+        .articulo {
+            width: 100%;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+    }
+}
+
+@media screen and (max-width: 426px) {
+    #portada {
+        padding-top: 80px;
+    }
+}

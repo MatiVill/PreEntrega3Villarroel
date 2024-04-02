@@ -1,0 +1,12 @@
+.texto {
+    max-width: 600px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+@media screen and (max-width: 426px) {
+    .texto {
+        font-size: 16px;
+    }
+}
