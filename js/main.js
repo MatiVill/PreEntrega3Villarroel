@@ -43,7 +43,6 @@ const carritoVacio = document.querySelector("#carrito-vacio");
 const carritoProductos = document.querySelector("#carrito-productos");
 const carritoTotal = document.querySelector("#carrito-total");
 
-
 productos.forEach((producto) => {
     let div = document.createElement("div");
     div.classList.add("producto");
@@ -92,7 +91,7 @@ const actualizarCarrito = () => {
             div.classList.add("carrito-producto");
             div.innerHTML = `
                 <h3>${producto.titulo}</h3>
-                <p>${producto.precio}</p>
+                <p>$${producto.precio}</p>
                 <p>Cant: ${producto.cantidad}</p>
                `;
 

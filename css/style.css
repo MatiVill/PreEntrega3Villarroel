@@ -178,6 +178,22 @@ footer .contenedorFooter .logoFooter {
   padding: 10px;
 }
 
+.botonTienda {
+  color: black;
+  background-color: lightgrey;
+  width: 500px;
+  font-style: italic;
+  margin-top: 200px;
+  margin-left: 200px;
+  font-size: 50px;
+  border-radius: 30px;
+}
+
+.botonTienda:hover {
+  color: whitesmoke;
+  background-color: black;
+}
+
 #portada {
   background-image: url(../img/fondo1.jpeg);
   background-size: cover;
@@ -437,6 +453,17 @@ footer .contenedorFooter .logoFooter {
 #tienda .carrito-producto {
   display: flex;
   justify-content: space-between;
+}
+#tienda .carrito-producto-btn {
+  width: 30px;
+  border-radius: 15px;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 5px;
+}
+#tienda .carrito-producto-btn:hover {
+  background-color: black;
+  color: whitesmoke;
 }
 
 @media screen and (max-width: 1023px) {
