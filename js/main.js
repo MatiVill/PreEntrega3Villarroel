@@ -126,27 +126,6 @@ const agregarAlCarrito = (producto) => {
     }).showToast();
 }
 
-vaciar.addEventListener("click", () => {
-    Swal.fire({
-        title: "Quieres borrar todos los productos?",
-        icon: "question",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Si, borrar todo",
-        cancelButtonText: "No",
-    }).then((result) => {
-        if (result.isConfirmed) {
-            carrito.lenght = 0;
-            actualizarCarrito();
-            Swal.fire({
-                title: "Productos eliminados",
-                icon: "success"
-            });
-        }
-    });
-})
-
 const borrarDelCarrito = (producto) => {
     const prodIndex = carrito.findIndex(item => item.id === producto.id);
     carrito.splice(prodIndex, 1);
@@ -158,4 +137,23 @@ const actualizarTotal = () => {
     carritoTotal.innerText = `$${total}`;
 }
 
-actualizarCarrito();
+vaciar.addEventListener("click", () => {
+    Swal.fire({
+        title: "Quieres borrar todos los productos?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borrar todo",
+        cancelButtonText: "No",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            carrito.length = 0;
+            actualizarCarrito();
+            Swal.fire({
+                title: "Productos eliminados",
+                icon: "success"
+            });
+        }
+    });
+})
