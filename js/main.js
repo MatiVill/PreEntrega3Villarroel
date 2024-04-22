@@ -1,4 +1,5 @@
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+
 const productos = [
     {
         id: "kimono1",
@@ -42,18 +43,21 @@ const contenedorProductos = document.querySelector("#productos");
 const carritoVacio = document.querySelector("#carrito-vacio");
 const carritoProductos = document.querySelector("#carrito-productos");
 const carritoTotal = document.querySelector("#carrito-total");
+const vaciar = document.querySelector("#vaciar");
 
-productos.forEach((producto) => {
-    let div = document.createElement("div");
-    div.classList.add("producto");
-    div.classList.add("etiquetaProducto");
-    div.classList.add("col");
-    div.innerHTML = `
-        <img class="fotoProducto" src="${producto.img}">
-        <h3>${producto.titulo}</h3>
-        <p>$${producto.precio}</p>
-
-    `;
+const cargarProductos = (productos) => {
+    contenedorProductos.innerHTML= "";
+    productos.forEach((producto) => {
+        let div = document.createElement("div");
+        div.classList.add("producto");
+        div.classList.add("etiquetaProducto");
+        div.classList.add("col");
+        div.innerHTML = `
+            <img class="fotoProducto" src="${producto.img}">
+            <h3>${producto.titulo}</h3>
+            <p>$${producto.precio}</p>
+    
+        `;
 
     let button = document.createElement("button");
     button.classList.add("botonProducto");
@@ -63,27 +67,20 @@ productos.forEach((producto) => {
     });
 
     div.append(button);
-
     contenedorProductos.append(div);
 })
-
-const agregarAlCarrito = (producto) => {
-    const itemEncontrado = carrito.find(item => item.id === producto.id);
-    if (itemEncontrado) {
-        itemEncontrado.cantidad++;
-    } else {
-        carrito.push({ ...producto, cantidad: 1 });
-    }
-    actualizarCarrito();
 }
+cargarProductos(productos);
 
 const actualizarCarrito = () => {
     if (carrito.lenght === 0) {
         carritoVacio.classList.remove("d-none");
         carritoProductos.classList.add("d-none");
+        vaciar.classList.add("d-none");
     } else {
         carritoVacio.classList.add("d-none");
         carritoProductos.classList.remove("d-none");
+        vaciar.classList.remove("d-none");
 
         carritoProductos.innerHTML = ""
         carrito.forEach((producto) => {
@@ -110,6 +107,46 @@ const actualizarCarrito = () => {
     localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+const agregarAlCarrito = (producto) => {
+    const itemEncontrado = carrito.find(item => item.id === producto.id);
+    if (itemEncontrado) {
+        itemEncontrado.cantidad++;
+    } else {
+        carrito.push({ ...producto, cantidad: 1 });
+    }
+    actualizarCarrito();
+
+    Toastify({
+        text: "Artículo agregado al Carrito",
+        duration: 2000,
+        style: {
+            background: "black",
+            borderRadius: ".5rem",
+        },
+    }).showToast();
+}
+
+vaciar.addEventListener("click", () => {
+    Swal.fire({
+        title: "Quieres borrar todos los productos?",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, borrar todo",
+        cancelButtonText: "No",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            carrito.lenght = 0;
+            actualizarCarrito();
+            Swal.fire({
+                title: "Productos eliminados",
+                icon: "success"
+            });
+        }
+    });
+})
+
 const borrarDelCarrito = (producto) => {
     const prodIndex = carrito.findIndex(item => item.id === producto.id);
     carrito.splice(prodIndex, 1);
@@ -117,7 +154,7 @@ const borrarDelCarrito = (producto) => {
 }
 
 const actualizarTotal = () => {
-    const total = carrito.reduce((acc, prod) => acc + (prod.precio * prod.cantidad), 0);
+    let total = carrito.reduce((acc, prod) => acc + (prod.precio * prod.cantidad), 0);
     carritoTotal.innerText = `$${total}`;
 }
 
