@@ -2,10 +2,12 @@
     padding-top: 118px;
 
     .container {
-        background-color: black;
+        background-color: rgba(0, 0, 0, 0.807);
         color: whitesmoke;
         padding: 20px;
         border-radius: 15px;
+        margin-bottom: 30px;
+        font-size: large;
 
 
         #vaciar {
@@ -17,6 +19,10 @@
             font-style: italic;
             padding: 5px;
             border-radius: 10px;
+        }
+        #vaciar:hover {
+            background-color: black;
+            color: whitesmoke;
         }
     }
 

@@ -423,10 +423,12 @@ footer .contenedorFooter .logoFooter {
   padding-top: 118px;
 }
 #tienda .container {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.807);
   color: whitesmoke;
   padding: 20px;
   border-radius: 15px;
+  margin-bottom: 30px;
+  font-size: large;
 }
 #tienda .container #vaciar {
   background: whitesmoke;
@@ -437,6 +439,10 @@ footer .contenedorFooter .logoFooter {
   font-style: italic;
   padding: 5px;
   border-radius: 10px;
+}
+#tienda .container #vaciar:hover {
+  background-color: black;
+  color: whitesmoke;
 }
 #tienda #menuTienda {
   display: flex;
