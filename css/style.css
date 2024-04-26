@@ -422,6 +422,22 @@ footer .contenedorFooter .logoFooter {
 #tienda {
   padding-top: 118px;
 }
+#tienda .container {
+  background-color: black;
+  color: whitesmoke;
+  padding: 20px;
+  border-radius: 15px;
+}
+#tienda .container #vaciar {
+  background: whitesmoke;
+  color: black;
+  text-align: center;
+  border: solid thin;
+  font-size: 18px;
+  font-style: italic;
+  padding: 5px;
+  border-radius: 10px;
+}
 #tienda #menuTienda {
   display: flex;
   flex-direction: row;
@@ -432,6 +448,9 @@ footer .contenedorFooter .logoFooter {
   margin-bottom: 20px;
   overflow: auto;
   white-space: nowrap;
+}
+#tienda .d-none {
+  display: none;
 }
 #tienda .escaparate {
   margin-top: 20px;

@@ -1,6 +1,25 @@
 #tienda {
     padding-top: 118px;
 
+    .container {
+        background-color: black;
+        color: whitesmoke;
+        padding: 20px;
+        border-radius: 15px;
+
+
+        #vaciar {
+            background: whitesmoke;
+            color: black;
+            text-align: center;
+            border: solid thin;
+            font-size: 18px;
+            font-style: italic;
+            padding: 5px;
+            border-radius: 10px;
+        }
+    }
+
     #menuTienda {
         @include flex(row);
         justify-content: space-around;

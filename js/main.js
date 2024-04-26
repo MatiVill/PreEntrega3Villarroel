@@ -1,21 +1,23 @@
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 
-
 const contenedorProductos = document.querySelector("#productos");
 const carritoVacio = document.querySelector("#carrito-vacio");
 const carritoProductos = document.querySelector("#carrito-productos");
 const carritoTotal = document.querySelector("#carrito-total");
 const vaciar = document.querySelector("#vaciar");
 
+let productos = []
+
 fetch("/data/productos.json")
     .then((res) => res.json())
     .then((data) => {
-        cargarProductos(data);
+        productos = [...data];
+        cargarProductos(productos);
     })
 
 const cargarProductos = (productos) => {
-    contenedorProductos.innerHTML = "";
+    contenedorProductos.innerHTML= "";
     productos.forEach((producto) => {
         let div = document.createElement("div");
         div.classList.add("producto");
@@ -28,16 +30,16 @@ const cargarProductos = (productos) => {
     
         `;
 
-        let button = document.createElement("button");
-        button.classList.add("botonProducto");
-        button.innerText = "Comprar";
-        button.addEventListener("click", () => {
-            agregarAlCarrito(producto);
-        });
+    let button = document.createElement("button");
+    button.classList.add("botonProducto");
+    button.innerText = "Comprar";
+    button.addEventListener("click", () => {
+        agregarAlCarrito(producto);
+    });
 
-        div.append(button);
-        contenedorProductos.append(div);
-    })
+    div.append(button);
+    contenedorProductos.append(div);
+})
 }
 cargarProductos(productos);
 
