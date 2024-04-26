@@ -1,43 +1,6 @@
 const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
-const productos = [
-    {
-        id: "kimono1",
-        titulo: "Kimono Vital Negro 1",
-        precio: 100000,
-        img: "../img/ginegro1.webp",
-    },
-    {
-        id: "kimono2",
-        titulo: "Kimono Vital Negro 2",
-        precio: 110000,
-        img: "../img/ginegro2.webp",
-    },
-    {
-        id: "kimono3",
-        titulo: "Kimono Vital Azul",
-        precio: 120000,
-        img: "../img/giazul1.webp",
-    },
-    {
-        id: "kimono4",
-        titulo: "Kimono Vital Blanco",
-        precio: 130000,
-        img: "../img/giblanco.webp",
-    },
-    {
-        id: "kimono5",
-        titulo: "Kimono Vital Verde Agua",
-        precio: 140000,
-        img: "../img/giverdeagua.webp",
-    },
-    {
-        id: "kimono6",
-        titulo: "Kimono Vital Naranja",
-        precio: 150000,
-        img: "../img/ginaranja.webp",
-    },
-];
+
 
 const contenedorProductos = document.querySelector("#productos");
 const carritoVacio = document.querySelector("#carrito-vacio");
@@ -45,8 +8,14 @@ const carritoProductos = document.querySelector("#carrito-productos");
 const carritoTotal = document.querySelector("#carrito-total");
 const vaciar = document.querySelector("#vaciar");
 
+fetch("/data/productos.json")
+    .then((res) => res.json())
+    .then((data) => {
+        cargarProductos(data);
+    })
+
 const cargarProductos = (productos) => {
-    contenedorProductos.innerHTML= "";
+    contenedorProductos.innerHTML = "";
     productos.forEach((producto) => {
         let div = document.createElement("div");
         div.classList.add("producto");
@@ -59,16 +28,16 @@ const cargarProductos = (productos) => {
     
         `;
 
-    let button = document.createElement("button");
-    button.classList.add("botonProducto");
-    button.innerText = "Comprar";
-    button.addEventListener("click", () => {
-        agregarAlCarrito(producto);
-    });
+        let button = document.createElement("button");
+        button.classList.add("botonProducto");
+        button.innerText = "Comprar";
+        button.addEventListener("click", () => {
+            agregarAlCarrito(producto);
+        });
 
-    div.append(button);
-    contenedorProductos.append(div);
-})
+        div.append(button);
+        contenedorProductos.append(div);
+    })
 }
 cargarProductos(productos);
 
